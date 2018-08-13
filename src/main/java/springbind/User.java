@@ -1,6 +1,7 @@
 package springbind;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,8 +11,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "t_user")
-public class User implements Serializable
-{
+public class User implements Serializable {
 
 	private static final long serialVersionUID = 1946565865390558320L;
 
@@ -29,37 +29,32 @@ public class User implements Serializable
 	@Column(name = "RealName", length = 40, nullable = false)
 	private String realName = "";
 
-	public String getUserName()
-	{
+	private BigDecimal price;
+
+	public String getUserName() {
 		return userName;
 	}
 
-	public void setUserName(String userName)
-	{
+	public void setUserName(String userName) {
 		this.userName = userName;
 	}
 
-	public String getPassword()
-	{
+	public String getPassword() {
 		return password;
 	}
 
-	public void setPassword(String password)
-	{
+	public void setPassword(String password) {
 		this.password = password;
 	}
 
-	public String getRealName()
-	{
+	public String getRealName() {
 		return realName;
 	}
 
-	public void setRealName(String realName)
-	{
+	public void setRealName(String realName) {
 		this.realName = realName;
 	}
 
-	
 	public long getId() {
 		return id;
 	}
@@ -68,9 +63,16 @@ public class User implements Serializable
 		this.id = id;
 	}
 
+	public BigDecimal getPrice() {
+		return price;
+	}
+
+	public void setPrice(BigDecimal price) {
+		this.price = price;
+	}
+
 	@Override
-	public int hashCode()
-	{
+	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + (int) (id ^ (id >>> 32));
@@ -78,8 +80,7 @@ public class User implements Serializable
 	}
 
 	@Override
-	public boolean equals(Object obj)
-	{
+	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
 		if (obj == null)
